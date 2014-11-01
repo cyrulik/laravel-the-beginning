@@ -16,17 +16,6 @@ class HomeController extends Controller {
     }
 
     /**
-     * @Get("/character/{id}")
-     */
-    public function character($id)
-    {
-        $page      = ['title' => 'Character'];
-        $character = Character::find($id);
-
-        return view('home/character', compact('page'))->with('character', $character);
-    }
-
-    /**
      * @Get("/about")
      */
     public function about()
@@ -35,5 +24,4 @@ class HomeController extends Controller {
 
         return view('home/about', compact('page'));
     }
-
 }

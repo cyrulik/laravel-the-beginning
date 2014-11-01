@@ -11,6 +11,7 @@ class RouteServiceProvider extends ServiceProvider {
      * @var array
      */
     protected $scan = [
+        'App\Http\Controllers\CharacterController',
         'App\Http\Controllers\HomeController',
         'App\Http\Controllers\Auth\AuthController',
         'App\Http\Controllers\Auth\PasswordController',
