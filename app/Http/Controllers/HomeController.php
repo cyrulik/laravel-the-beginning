@@ -4,23 +4,34 @@ use Illuminate\Routing\Controller;
 
 class HomeController extends Controller {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| Controller methods are called when a request enters the application
-	| with their assigned URI. The URI a method responds to may be set
-	| via simple annotations. Here is an example to get you started!
-	|
-	*/
+    /**
+     * @Get("/")
+     */
+    public function index()
+    {
+        $page = ['title' => 'Home page'];
 
-	/**
-	 * @Get("/")
-	 */
-	public function index()
-	{
-		return view('home/index');
-	}
+        return view('home/index', compact('page'));
+    }
+
+    /**
+     * @Get("/account/{id}")
+     */
+    public function account($id)
+    {
+        $page = ['title' => 'Account'];
+
+        return view('home/account', compact('page'))->with('id', $id);
+    }
+
+    /**
+     * @Get("/about")
+     */
+    public function about()
+    {
+        $page = ['title' => 'About'];
+
+        return view('home/about', compact('page'));
+    }
 
 }

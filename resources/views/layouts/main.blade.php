@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home page</title>
+    <title>{{ $page['title'] }}</title>
 </head>
 <body>
-	Welcome.
+    @section('content')
+
+    Welcome.
+
+    @show
 </body>
 </html>
