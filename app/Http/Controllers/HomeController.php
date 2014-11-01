@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Character;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller {
@@ -15,13 +16,14 @@ class HomeController extends Controller {
     }
 
     /**
-     * @Get("/account/{id}")
+     * @Get("/character/{id}")
      */
-    public function account($id)
+    public function character($id)
     {
-        $page = ['title' => 'Account'];
+        $page      = ['title' => 'Character'];
+        $character = Character::find($id);
 
-        return view('home/account', compact('page'))->with('id', $id);
+        return view('home/character', compact('page'))->with('character', $character);
     }
 
     /**
