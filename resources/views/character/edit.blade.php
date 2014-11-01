@@ -4,9 +4,19 @@
 
 @if (!is_null($character))
 
-    Character id {{ $character->id }}.
+    <h2>{{ $character->name }}</h2>
 
-    {!! Form::open() !!}
+    {!! Form::model($character, ['url' => '/character/' . $character->id . '/edit', 'method' => 'PATCH']) !!}
+
+    <div class="form-group">
+        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::textarea('about', null, ['class' => 'form-control']) !!}
+    </div>
+
+    {!! Form::submit('Edit character', ['class' => 'btn btn-primary']) !!}
 
     {!! Form::close() !!}
 

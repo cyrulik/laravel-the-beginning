@@ -50,4 +50,16 @@ class CharacterController extends Controller {
 
         return view('character/edit', compact('page'))->with('character', $character);
     }
+
+    /**
+     * @Patch("/character/{id}/edit")
+     */
+    public function modify($id, Request $request)
+    {
+        $page      = ['title' => 'Character edit'];
+        $character = Character::find($id);
+        $character->fill($request->input())->save();
+
+        return view('character/modify', compact('page'))->with('character', $character);
+    }
 }
